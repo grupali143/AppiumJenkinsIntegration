@@ -16,13 +16,19 @@ public class SampleTest {
 	
 	@Test
 	public void testLaunch() throws MalformedURLException, InterruptedException {
-		DesiredCapabilities capabilities=new DesiredCapabilities();
-		capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "Appium");
-		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, System.getProperty("PlatformName"));
-		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION,System.getProperty("PlatformVersion"));
-		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"iPhone Simulator");
-		capabilities.setCapability("app","/Users/grupali143/Desktop/UiCatalog.app");
-		IOSDriver driver=new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
+		DesiredCapabilities capabilities = new DesiredCapabilities();
+	    capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "");
+	    capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "7.1");
+	    capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "iOS");
+	    capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone Simulator");
+	 
+	    capabilities.setCapability("app", "com.example.apple-samplecode.UICatalog");
+		 
+	    capabilities.setCapability("automationName", "Appium");
+	    capabilities.setCapability("udid","c84c5fd8fb6cd5e842473a1888c511b7cf8d9bef");
+
+	    driver = new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+	
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 		driver.findElements(By.className("UIAButton")).get(0).click();
 		driver.scrollTo("Date Picker").click();
