@@ -21,7 +21,7 @@ public class SampleTest {
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, System.getProperty("PlatformName"));
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION,System.getProperty("PlatformVersion"));
 		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"iPhone Simulator");
-		capabilities.setCapability("app","/Users/grupali143/DesktopUiCatalog.app");
+		capabilities.setCapability("app","/Users/grupali143/Desktop/UiCatalog.app");
 		IOSDriver driver=new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 		driver.findElements(By.className("UIAButton")).get(0).click();
